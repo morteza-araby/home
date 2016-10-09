@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1c115010-88df-294c-979e-4362b674980d++2977",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "1c115010-88df-294c-979e-4362b674980d++2977" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1c115010-88df-294c-979e-4362b674980d++2977" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2DC1BBA2-78B0-4E8E-B6CC-310AE4E3D30A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1c115010-88df-294c-979e-4362b674980d++2977" : "MyProjects\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "pokedex3",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOS\/Swift-elearn\/home\/iOS\/pokedex3\/pokedex3.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.0.16\/MARepository",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1c115010-88df-294c-979e-4362b674980d++2977"
+    }
+  ]
+}
