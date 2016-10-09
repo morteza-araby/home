@@ -128,6 +128,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="4fd-Uq-8fr" id="5sD-TO-8au"/>
+                        <outlet property="searchBar" destination="OBI-Rb-yJH" id="HZx-BW-gDt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

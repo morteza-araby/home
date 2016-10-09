@@ -9,17 +9,23 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout, UISearchBarDelegate{
 
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var pokemon = [Pokemon]()
+    var filteredPokemon = [Pokemon]()
     var musicPlayer = AVAudioPlayer()
+    var inSearchMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collection.dataSource = self
         collection.delegate = self
+        searchBar.delegate = self
+        
+        searchBar.returnKeyType = UIReturnKeyType.done //When we press done on keyboard, keyboard disappear.
        
         parsePokemonCSV()
         initAudio()
@@ -68,7 +74,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             //let pokemon = Pokemon(name: "Pokemon", pokedexId: indexPath.row)
             //cell.configureCell(pokemon)
             
-            let poke = pokemon[indexPath.row]
+            var poke: Pokemon!
+            if inSearchMode {
+                poke = filteredPokemon[indexPath.row]
+            }else{
+               poke = pokemon[indexPath.row]
+            }
             cell.configureCell(poke)
             
             return cell
@@ -84,6 +95,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //return 30
+        if inSearchMode {
+            return filteredPokemon.count
+        }
         return pokemon.count
     }
     
@@ -105,6 +119,25 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }else{
             musicPlayer.play()
             sender.alpha = 1.0
+        }
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            inSearchMode = false
+            collection.reloadData()
+            view.endEditing(true)
+        }else{
+            inSearchMode = true
+            
+            let lower = searchBar.text!.lowercased()
+            filteredPokemon = pokemon.filter({$0.name.range(of: lower) != nil })
+            collection.reloadData()
         }
         
     }
